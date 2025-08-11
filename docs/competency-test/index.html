@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Mill Safety Competency Test</title>
+    <style>
+        /* Basic styling - clean and professional */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Light mode (default) */
+        :root {
+            --bg-color: #f5f5f5;
+            --container-bg: white;
+            --text-color: #333;
+            --text-secondary: #666;
+            --primary-color: #1976d2;
+            --primary-hover: #1565c0;
+            --question-bg: #f8f9fa;
+            --option-hover: #e3f2fd;
+            --progress-bg: #e0e0e0;
+            --progress-fill: #4caf50;
+            --error-bg: #ffebee;
+            --error-color: #f44336;
+            --info-bg: #e3f2fd;
+            --border-color: #ddd;
+            --disabled-bg: #ccc;
+            --score-bg: #f5f5f5;
+        }
+        
+        /* Dark mode */
+        body.dark-mode {
+            --bg-color: #1e1e1e;
+            --container-bg: #2d2d2d;
+            --text-color: #e0e0e0;
+            --text-secondary: #aaa;
+            --primary-color: #42a5f5;
+            --primary-hover: #64b5f6;
+            --question-bg: #3a3a3a;
+            --option-hover: #424242;
+            --progress-bg: #424242;
+            --progress-fill: #66bb6a;
+            --error-bg: #5d2020;
+            --error-color: #ff6b6b;
+            --info-bg: #1e3a5f;
+            --border-color: #555;
+            --disabled-bg: #555;
+            --score-bg: #3a3a3a;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--bg-color);
+            padding: 20px;
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: background 0.3s;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: var(--text-color);
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+        
+        /* Forms */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 16px;
+            background: var(--container-bg);
+            color: var(--text-color);
+        }
+        
+        button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: var(--primary-hover);
+        }
+        
+        button:disabled {
+            background: var(--disabled-bg);
+            cursor: not-allowed;
+        }
+        
+        /* Question styles */
+        .question {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--question-bg);
+            border-radius: 4px;
+        }
+        
+        .question-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .question-text {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .options {
+            list-style: none;
+        }
+        
+        .option {
+            margin-bottom: 10px;
+        }
+        
+        .option label {
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        
+        .option label:hover {
+            background: var(--option-hover);
+        }
+        
+        .option input[type="radio"] {
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        
+        /* Progress */
+        .progress-bar {
+            height: 20px;
+            background: var(--progress-bg);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--progress-fill);
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+        }
+        
+        /* Results */
+        .result-pass {
+            color: var(--progress-fill);
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .result-fail {
+            color: var(--error-color);
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .score-details {
+            margin: 20px 0;
+            padding: 20px;
+            background: var(--score-bg);
+            border-radius: 4px;
+        }
+        
+        /* Certificate */
+        .certificate {
+            border: 3px solid var(--primary-color);
+            padding: 40px;
+            margin-top: 30px;
+            text-align: center;
+            background: var(--container-bg);
+            position: relative;
+        }
+        
+        .certificate h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .certificate .cert-text {
+            font-size: 20px;
+            margin: 15px 0;
+        }
+        
+        .certificate .score {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--progress-fill);
+            margin: 20px 0;
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+            
+            .certificate {
+                page-break-inside: avoid;
+                margin: 0;
+                border-color: black;
+            }
+        }
+        
+        /* Error messages */
+        .error {
+            color: var(--error-color);
+            margin-top: 10px;
+            padding: 10px;
+            background: var(--error-bg);
+            border-radius: 4px;
+        }
+        
+        /* Hidden by default */
+        .hidden {
+            display: none;
+        }
+        
+        /* Timer */
+        .timer {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--container-bg);
+            padding: 15px 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+        
+        @media (max-width: 768px) {
+            .timer {
+                position: static;
+                margin-bottom: 20px;
+            }
+        }
+        
+        /* Theme toggle button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        
+        .theme-toggle:hover {
+            background: var(--option-hover);
+        }
+        
+        .theme-toggle span {
+            font-size: 24px;
+            line-height: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .theme-toggle {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <span id="theme-icon">☀️</span>
+    </button>
+    
+    <div class="container">
+        <!-- Login Section -->
+        <div id="loginSection">
+            <h1>Vertical Mill Safety Competency Test</h1>
+            <p class="subtitle">Test your knowledge of safe vertical milling machine operation practices</p>
+            
+            <div class="form-group">
+                <label for="name">Enter your full name:</label>
+                <input type="text" id="name" placeholder="John Doe" required>
+                <div id="nameError" class="error hidden"></div>
+            </div>
+            
+            <button onclick="startTest()">Begin Test</button>
+            
+            <div style="margin-top: 30px; padding: 20px; background: var(--info-bg); border-radius: 4px;">
+                <h3>Test Information:</h3>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>25 questions on vertical mill safety and basic operations</li>
+                    <li>Multiple choice format</li>
+                    <li>Passing score: 80% (20 out of 25)</li>
+                    <li>Time limit: 45 minutes</li>
+                    <li>Certificate provided upon passing</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Test Section -->
+        <div id="testSection" class="hidden">
+            <h1>Vertical Mill Safety Competency Test</h1>
+            <div class="timer" id="timer">Time: 45:00</div>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar">0%</div>
+            </div>
+            
+            <div id="questionContainer"></div>
+            
+            <div style="margin-top: 30px; text-align: center;">
+                <button onclick="previousQuestion()" id="prevBtn">Previous</button>
+                <button onclick="nextQuestion()" id="nextBtn">Next</button>
+                <button onclick="submitTest()" id="submitBtn" class="hidden">Submit Test</button>
+            </div>
+        </div>
+        
+        <!-- Results Section -->
+        <div id="resultsSection" class="hidden">
+            <h1>Test Results</h1>
+            
+            <div id="resultMessage"></div>
+            
+            <div class="score-details" id="scoreDetails"></div>
+            
+            <div id="certificateSection" class="hidden">
+                <div class="certificate">
+                    <h1>CERTIFICATE OF COMPLETION</h1>
+                    <p class="cert-text">This certifies that</p>
+                    <p class="cert-text" style="font-size: 28px; font-weight: bold;" id="certName"></p>
+                    <p class="cert-text">has successfully completed the</p>
+                    <p class="cert-text" style="font-size: 24px; font-weight: bold;">Vertical Mill Safety Competency Test</p>
+                    <p class="score" id="certScore"></p>
+                    <p class="cert-text">Date: <span id="certDate"></span></p>
+                    <p class="cert-text">Session: <span id="certSession"></span></p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; text-align: center;" class="no-print">
+                <button onclick="window.print()">Print Certificate</button>
+                <button onclick="downloadResults()">Download Results</button>
+                <button onclick="location.reload()">Take Test Again</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Load questions -->
+    <script src="questions.js"></script>
+    
+    <script>
+        // Global variables
+        let currentQuestion = 0;
+        let userAnswers = [];
+        let testStartTime;
+        let timerInterval;
+        let timeRemaining = 45 * 60; // 45 minutes in seconds
+        
+        // Shuffle array helper
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+        
+        // Get session from URL parameter
+        function getSessionId() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('session') || 'default-session';
+        }
+        
+        // Start test
+        function startTest() {
+            const name = document.getElementById('name').value.trim();
+            const errorDiv = document.getElementById('nameError');
+            
+            // Validate name is entered
+            if (!name) {
+                errorDiv.textContent = 'Please enter your name';
+                errorDiv.classList.remove('hidden');
+                return;
+            }
+            
+            // Hide any error messages
+            errorDiv.classList.add('hidden');
+            
+            // Store user info
+            localStorage.setItem('testUser', JSON.stringify({
+                name: name,
+                session: getSessionId()
+            }));
+            
+            // Initialize test
+            testStartTime = new Date();
+            userAnswers = new Array(25).fill(null);
+            
+            // Shuffle and select 25 questions
+            const shuffled = shuffleArray(questions);
+            window.testQuestions = shuffled.slice(0, 25);
+            
+            // Start timer
+            startTimer();
+            
+            // Show test section
+            document.getElementById('loginSection').classList.add('hidden');
+            document.getElementById('testSection').classList.remove('hidden');
+            
+            // Display first question
+            displayQuestion();
+        }
+        
+        // Timer function
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                const minutes = Math.floor(timeRemaining / 60);
+                const seconds = timeRemaining % 60;
+                document.getElementById('timer').textContent = 
+                    `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    submitTest();
+                }
+            }, 1000);
+        }
+        
+        // Display current question
+        function displayQuestion() {
+            const question = window.testQuestions[currentQuestion];
+            const container = document.getElementById('questionContainer');
+            
+            container.innerHTML = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1} of 25</div>
+                    <div class="question-text">${question.question}</div>
+                    <ul class="options">
+                        ${question.options.map((option, index) => `
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q${currentQuestion}" value="${index}"
+                                        ${userAnswers[currentQuestion] === index ? 'checked' : ''}
+                                        onchange="selectAnswer(${index})">
+                                    <span>${option}</span>
+                                </label>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `;
+            
+            // Update progress bar
+            const answered = userAnswers.filter(a => a !== null).length;
+            const progress = (answered / 25) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('progressBar').textContent = Math.round(progress) + '%';
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentQuestion === 0;
+            document.getElementById('nextBtn').classList.toggle('hidden', currentQuestion === 24);
+            document.getElementById('submitBtn').classList.toggle('hidden', currentQuestion !== 24);
+        }
+        
+        // Record answer
+        function selectAnswer(answerIndex) {
+            userAnswers[currentQuestion] = answerIndex;
+        }
+        
+        // Navigation
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                displayQuestion();
+            }
+        }
+        
+        function nextQuestion() {
+            if (currentQuestion < 24) {
+                currentQuestion++;
+                displayQuestion();
+            }
+        }
+        
+        // Submit test
+        function submitTest() {
+            // Stop timer
+            clearInterval(timerInterval);
+            
+            // Calculate score
+            let correct = 0;
+            const results = window.testQuestions.map((question, index) => {
+                const isCorrect = userAnswers[index] === question.correctAnswer;
+                if (isCorrect) correct++;
+                return {
+                    question: question.question,
+                    userAnswer: userAnswers[index],
+                    correctAnswer: question.correctAnswer,
+                    isCorrect: isCorrect
+                };
+            });
+            
+            const score = (correct / 25) * 100;
+            const passed = score >= 80;
+            const testEndTime = new Date();
+            const timeTaken = Math.round((testEndTime - testStartTime) / 1000 / 60);
+            
+            // Get user info
+            const userInfo = JSON.parse(localStorage.getItem('testUser'));
+            
+            // Store results
+            const testResult = {
+                ...userInfo,
+                score: score,
+                correct: correct,
+                passed: passed,
+                date: testEndTime.toISOString(),
+                timeTaken: timeTaken,
+                results: results
+            };
+            localStorage.setItem('latestTestResult', JSON.stringify(testResult));
+            
+            // Show results
+            showResults(testResult);
+        }
+        
+        // Display results
+        function showResults(testResult) {
+            document.getElementById('testSection').classList.add('hidden');
+            document.getElementById('resultsSection').classList.remove('hidden');
+            
+            // Result message
+            const messageDiv = document.getElementById('resultMessage');
+            if (testResult.passed) {
+                messageDiv.innerHTML = `
+                    <p class="result-pass">Congratulations! You passed!</p>
+                    <p>You demonstrated competency in vertical mill safety and operation practices.</p>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <p class="result-fail">Test not passed</p>
+                    <p>You scored ${testResult.correct}/25 (${testResult.score.toFixed(1)}%). 
+                    A score of 80% or higher is required to pass.</p>
+                    <p>Please review the safety materials and try again.</p>
+                `;
+            }
+            
+            // Score details
+            document.getElementById('scoreDetails').innerHTML = `
+                <h3>Test Details:</h3>
+                <p><strong>Name:</strong> ${testResult.name}</p>
+                <p><strong>Score:</strong> ${testResult.correct}/25 (${testResult.score.toFixed(1)}%)</p>
+                <p><strong>Time taken:</strong> ${testResult.timeTaken} minutes</p>
+                <p><strong>Date:</strong> ${new Date(testResult.date).toLocaleDateString()}</p>
+                <p><strong>Session:</strong> ${testResult.session}</p>
+            `;
+            
+            // Show certificate if passed
+            if (testResult.passed) {
+                document.getElementById('certificateSection').classList.remove('hidden');
+                document.getElementById('certName').textContent = testResult.name;
+                document.getElementById('certScore').textContent = 
+                    `Score: ${testResult.correct}/25 (${testResult.score.toFixed(1)}%)`;
+                document.getElementById('certDate').textContent = 
+                    new Date(testResult.date).toLocaleDateString();
+                document.getElementById('certSession').textContent = testResult.session;
+            }
+        }
+        
+        // Download results as text file
+        function downloadResults() {
+            const result = JSON.parse(localStorage.getItem('latestTestResult'));
+            const text = `Vertical Mill Safety Competency Test Results
+============================================
+Name: ${result.name}
+Date: ${new Date(result.date).toLocaleString()}
+Session: ${result.session}
+Score: ${result.correct}/25 (${result.score.toFixed(1)}%)
+Result: ${result.passed ? 'PASSED' : 'NOT PASSED'}
+Time taken: ${result.timeTaken} minutes
+
+Please save this file for your records.`;
+            
+            const blob = new Blob([text], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `vertical-mill-safety-test-${result.name.replace(/\s+/g, '-')}-${new Date().toISOString().split('T')[0]}.txt`;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+        
+        // Theme management
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                icon.textContent = '☀️';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.add('dark-mode');
+                icon.textContent = '🌙';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+        
+        // Load saved theme preference
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const icon = document.getElementById('theme-icon');
+            
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                icon.textContent = '🌙';
+            } else {
+                icon.textContent = '☀️';
+            }
+        });
+    </script>
+</body>
+</html>

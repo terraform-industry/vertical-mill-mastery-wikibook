@@ -1,0 +1,87 @@
+site_name: The Vertical Mill Mastery Wiki Book
+site_author: Johanness A. Nilsson - Jo@terraformindustries.com
+site_description: A comprehensive guide to vertical milling machine operation, from beginner to master
+docs_dir: docs
+site_dir: site
+repo_url: https://github.com/JoNilsson/vertical-mill-mastery-wikibook
+repo_name: vertical-mill-mastery-wikibook
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.footer
+    - navigation.instant
+    - search.highlight
+    - search.share
+    - toc.follow
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+  - tags
+
+markdown_extensions:
+  - mdx_truly_sane_lists:
+      nested_indent: 2
+      truly_sane: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - def_list
+  - attr_list
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/JoNilsson/vertical-mill-mastery-wikibook
+
+copyright: |
+  &copy; 2025 <a href="https://github.com/JoNilsson/vertical-mill-mastery-wikibook"  target="_blank" rel="noopener">The Vertical Mill Mastery Wiki Book</a> - 
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"  target="_blank" rel="noopener">CC BY-SA 4.0</a>
+
+nav:
+  - Home: index.md
+  - Fundamentals:
+    - Vertical Mill Basics: 01_vertical_mill_basics.md
+    - Machine Setup: 02_vertical_mill_setup.md
+    - First Chips: 03_vertical_mill_first_chips.md
+  - Basic Operations:
+    - Milling Operations: 04_basic_milling_operations.md
+    - Preparing Stock: 05_preparing_stock.md
+    - Laying Out Parts: 06_laying_out_parts.md
+    - Locating Features: 07_locating_features.md
+  - Advanced Topics:
+    - Lubricants and Chemicals: 08_lubricants_and_chemicals.md
+    - Finding Holes and Marks: 09_finding_holes_and_marks.md
+    - Work Holding and Fixturing: 12_work_holding_and_fixturing.md
+    - Milling Slots: 13_milling_slots.md
+    - Tapping Threads: 14_tapping_threads.md
+    - Boring Heads Guide: 15_boring_heads_guide.md
+  - Projects:
+    - Making T-Nuts: 10_making_t_nuts_project.md
+  - Technology:
+    - Digital Readout Systems: 11_digital_readout_systems.md
+  - About:
+    - Contributing: CONTRIBUTING.md
+    - Building the Book: BUILDING.md
+    - Authors: AUTHORS.md
+    - License: LICENSE.md
