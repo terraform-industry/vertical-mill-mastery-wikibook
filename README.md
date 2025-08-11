@@ -93,7 +93,7 @@ Under the terms of attribution and share-alike.
 
 ## 👥 Author
 
-**Johanness A. Nilsson** - Jo@terraformindustries.com
+**Johanness A. Nilsson** - <Jo@terraformindustries.com>
 
 ## 🙏 Acknowledgments
 

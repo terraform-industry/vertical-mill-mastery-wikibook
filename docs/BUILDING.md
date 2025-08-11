@@ -64,7 +64,7 @@ make lint-fix    # Auto-fix issues
 
 ## Project Structure
 
-```
+```bash
 vertical-mill-mastery-wikibook/
 ├── docs/                 # Source markdown files
 │   ├── index.md         # Home page

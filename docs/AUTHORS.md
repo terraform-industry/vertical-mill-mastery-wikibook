@@ -33,7 +33,7 @@ shops or makerspaces, trade schools or hackerspaces.
 
 ## Author / Maintainer
 
-- **Johanness A. Nilsson** - Jo@terraformindustries.com
+- **Johanness A. Nilsson** - <Jo@terraformindustries.com>
 
 ## Contributors
 
