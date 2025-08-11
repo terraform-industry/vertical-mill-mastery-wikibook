@@ -1,0 +1,41 @@
+name: Markdown Lint
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install markdownlint-cli2
+        run: npm install -g markdownlint-cli2
+
+      - name: Run markdown linter
+        run: markdownlint-cli2 "**/*.md"
+        continue-on-error: true
+
+      - name: Check markdown formatting
+        run: |
+          echo "## Markdown Lint Results" >> $GITHUB_STEP_SUMMARY
+          if markdownlint-cli2 "**/*.md"; then
+            echo "✅ All markdown files pass linting!" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⚠️ Some markdown files have linting issues." >> $GITHUB_STEP_SUMMARY
+            echo "Run 'make lint-fix' locally to auto-fix issues." >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
