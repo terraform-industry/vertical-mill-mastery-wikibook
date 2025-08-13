@@ -9,7 +9,7 @@ fundamental concepts through advanced techniques.
 ## 📖 Read the Book
 
 Visit the full documentation at:
-**<https://jonilsson.github.io/vertical-mill-mastery-wikibook/>**
+**<https://terraform-industry.github.io/vertical-mill-mastery-wikibook/>**
 
 ## 🎯 Purpose
 
@@ -106,8 +106,8 @@ acknowledgments.
 *"In the machine shop, as in life, we stand on the shoulders of those who
 came before us. This wiki ensures their knowledge lives on."*
 
-[deploy-badge]: https://github.com/JoNilsson/vertical-mill-mastery-wikibook/actions/workflows/deploy-docs.yml/badge.svg
-[deploy-url]: https://github.com/JoNilsson/vertical-mill-mastery-wikibook/actions/workflows/deploy-docs.yml
-[lint-badge]: https://github.com/JoNilsson/vertical-mill-mastery-wikibook/actions/workflows/markdown-lint.yml/badge.svg
+[deploy-badge]: https://github.com/terraform-industry/vertical-mill-mastery-wikibook/actions/workflows/deploy-docs.yml/badge.svg
+[deploy-url]: https://github.com/terraform-industry/vertical-mill-mastery-wikibook/actions/workflows/deploy-docs.yml
+[lint-badge]: https://github.com/terraform-industry/vertical-mill-mastery-wikibook/actions/workflows/markdown-lint.yml/badge.svg
 [lint-url]: https://github.com/JoNilsson/vertical-mill-mastery-wikibook/actions/workflows/markdown-lint.yml
 [cc-by-sa]: https://creativecommons.org/licenses/by-sa/4.0/
