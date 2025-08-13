@@ -1,4 +1,4 @@
-# The Vertical Mill Mastery Wiki Book
+# Teffaform Industries Vertical Mill Mastery Wiki Book
 
 [![Deploy MkDocs][deploy-badge]][deploy-url]
 [![Markdown Lint][lint-badge]][lint-url]
@@ -16,8 +16,7 @@ Visit the full documentation at:
 This wiki bridges the knowledge gap between traditional machinist wisdom and
 modern documentation practices. By capturing shop floor expertise in an
 accessible, searchable format, we ensure critical milling knowledge remains
-available to future generations—whether they come from machine shops,
-makerspaces, trade schools, or hackerspaces.
+available to future generations.
 
 ## 📚 Contents
 
@@ -38,14 +37,14 @@ This project uses [MkDocs](https://www.mkdocs.org/) with the
 
 Using Nix (recommended):
 
-```bash
+```sh
 nix develop
 mkdocs serve
 ```
 
 Using pip:
 
-```bash
+```sh
 pip install -r requirements.txt
 mkdocs serve
 ```
@@ -54,17 +53,12 @@ Then visit <http://localhost:8000>
 
 ### Build Commands
 
-```bash
+```sh
 make serve      # Start development server
 make build      # Build static site
 make lint       # Check markdown formatting
 make lint-fix   # Auto-fix markdown issues
 ```
-
-## 🧪 Competency Testing
-
-The book includes a hidden competency test system for instructors and training
-programs. Access it at `/competency-test/` when running locally.
 
 ## 🤝 Contributing
 
@@ -103,11 +97,11 @@ acknowledgments.
 
 ---
 
-*"In the machine shop, as in life, we stand on the shoulders of those who
-came before us. This wiki ensures their knowledge lives on."*
+_"In the machine shop, as in life, we stand on the shoulders of those who
+came before us. This wiki ensures their knowledge lives on."_
 
 [deploy-badge]: https://github.com/terraform-industry/vertical-mill-mastery-wikibook/actions/workflows/deploy-docs.yml/badge.svg
 [deploy-url]: https://github.com/terraform-industry/vertical-mill-mastery-wikibook/actions/workflows/deploy-docs.yml
 [lint-badge]: https://github.com/terraform-industry/vertical-mill-mastery-wikibook/actions/workflows/markdown-lint.yml/badge.svg
-[lint-url]: https://github.com/JoNilsson/vertical-mill-mastery-wikibook/actions/workflows/markdown-lint.yml
+[lint-url]: https://github.com/terraform-industry/vertical-mill-mastery-wikibook/actions/workflows/markdown-lint.yml
 [cc-by-sa]: https://creativecommons.org/licenses/by-sa/4.0/
