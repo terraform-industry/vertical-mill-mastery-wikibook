@@ -3,7 +3,7 @@ site_author: Johanness A. Nilsson - Jo@terraformindustries.com
 site_description: A comprehensive guide to vertical milling machine operation, from beginner to master
 docs_dir: docs
 site_dir: site
-repo_url: https://github.com/JoNilsson/vertical-mill-mastery-wikibook
+repo_url: https://github.com/terraform-industry/vertical-mill-mastery-wikibook
 repo_name: vertical-mill-mastery-wikibook
 
 theme:
@@ -52,10 +52,10 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/JoNilsson/vertical-mill-mastery-wikibook
+      link: https://github.com/terraform-industry/vertical-mill-mastery-wikibook
 
 copyright: |
-  &copy; 2025 <a href="https://github.com/JoNilsson/vertical-mill-mastery-wikibook"  target="_blank" rel="noopener">The Vertical Mill Mastery Wiki Book</a> - 
+  &copy; 2025 <a href="https://github.com/terraform-industry/vertical-mill-mastery-wikibook"  target="_blank" rel="noopener">The Vertical Mill Mastery Wiki Book</a> - 
   <a href="https://creativecommons.org/licenses/by-sa/4.0/"  target="_blank" rel="noopener">CC BY-SA 4.0</a>
 
 nav:
